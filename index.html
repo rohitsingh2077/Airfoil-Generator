@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NACA Airfoil Generator</title>
+  <link rel="stylesheet" href="styling.css">
+</head>
+<body>
+  <h1>NACA 4-Digit Airfoil Generator</h1>
+  <input type="text" id="nacaInput" placeholder="Enter NACA code (e.g., 2412)" />
+  <button onclick="generateAirfoil()">Generate</button>
+  <button onclick="startAnimation()">▶ Animate</button>
+  <button onclick="toggleTheme()">🌓Theme</button>
+  <div class="zoom-controls">
+    <button onclick="zoomIn()">🔍 Zoom In</button>
+    <button onclick="zoomOut()">🔎 Zoom Out</button>
+    <button onclick="resetView()">🔄 Reset</button>
+    <button onclick="downloadDAT()">💾 Export .DAT</button>
+    
+  </div>
+
+  <canvas id="airfoilCanvas" width="800" height="500"></canvas>
+
+  <script src="script.js">  
+  </script>
+</body>
+</html>

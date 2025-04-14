@@ -1,0 +1,59 @@
+:root {
+  --bg-light: #f9f9f9;
+  --bg-dark: #121212;
+  --text-light: #333;
+  --text-dark: #f9f9f9;
+  --primary: #0077cc;
+  --primary-dark: #005fa3;
+  --canvas-bg-light: #fff;
+  --canvas-bg-dark: #1e1e1e;
+}
+
+[data-theme="light"] body {
+  background: linear-gradient(to right, #e0f7fa, #ffffff);
+  color: var(--text-light);
+}
+
+[data-theme="dark"] body {
+  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+  color: var(--text-dark);
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  padding: 20px;
+  transition: background 0.5s, color 0.5s;
+}
+input, button {
+  padding: 10px;
+  font-size: 16px;
+  margin: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+button {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+button:hover {
+  background-color: var(--primary-dark);
+}
+canvas {
+  border: 2px solid var(--primary);
+  margin-top: 20px;
+  cursor: grab;
+  background-color: var(--canvas-bg-light);
+  transition: background-color 0.5s;
+}
+[data-theme="dark"] canvas {
+  background-color: var(--canvas-bg-dark);
+}
+.zoom-controls {
+  margin-top: 10px;
+}
+.zoom-controls button {
+  margin: 0 10px;
+}
