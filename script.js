@@ -128,22 +128,28 @@ function resetView() {
   offsetY = 250;
   drawAirfoil();
 }
-
 function downloadDAT() {
-  let content = "# X\tY\n";
-  for (let i = 0; i < xu.length; i++) {
-    content += `${xu[i].toFixed(5)}\t${yu[i].toFixed(5)}\n`;
+  const code = document.getElementById('nacaInput').value.trim();
+  let content = `NACA${code}\n`;
+
+  // Combine points: upper surface (LE to TE), then lower surface (TE to LE)
+  for (let i = xu.length - 1; i >= 0; i--) {
+    content += `${xu[i].toFixed(6)} ${yu[i].toFixed(6)}\n`;
   }
   for (let i = 0; i < xl.length; i++) {
-    content += `${xl[i].toFixed(5)}\t${yl[i].toFixed(5)}\n`;
+    content += `${xl[i].toFixed(6)} ${yl[i].toFixed(6)}\n`;
   }
 
   const blob = new Blob([content], { type: 'text/plain' });
   const a = document.createElement('a');
   a.href = URL.createObjectURL(blob);
-  a.download = 'airfoil.dat';
+  a.download = `NACA${code}.dat`;
+  document.body.appendChild(a);
   a.click();
+  document.body.removeChild(a);
 }
+
+
 
 function toggleTheme() {
   const html = document.documentElement;
